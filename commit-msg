@@ -1,0 +1,13 @@
+#!/bash/sh
+
+msg=`cat $1`
+
+value=`echo $msg | grep -P "((PRJ)|(CR))(.*)" -o `
+if [ ! -n "$value" ];then
+	echo "please check your commit message including the PRJ or CR"
+	exit 1
+else
+	exit 0
+fi
+
+
